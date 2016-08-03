@@ -1,4 +1,5 @@
-from node import Node
+from Study.LinkedList.node import Node
+#from LinkedList.node import Node
 
 
 class LinkedList(object):
@@ -12,7 +13,7 @@ class LinkedList(object):
         current_node = self.head
 
         while current_node is not None:
-            print ("%d ", current_node.data)
+            print("%d " % current_node.data)
             current_node = current_node.next_node
 
     def insertStart(self, data):

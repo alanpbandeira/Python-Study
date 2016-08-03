@@ -7,7 +7,7 @@ class Node(object):
 
     def remove(self, data, previous_node):
         if self.data == data:
-            previous_node.nextNode = self.next_node
+            previous_node.next_node = self.next_node
             del self.data
             del self.next_node
         else:
