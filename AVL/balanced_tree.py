@@ -2,10 +2,12 @@ from Study.AVL.node import Node
 
 
 class AVL(object):
+    """docstring"""
     def __init__(self):
         self.root_node = None
 
     def insert(self, data):
+        """docstring"""
 
         parent_node = self.root_node
 
@@ -15,39 +17,45 @@ class AVL(object):
         else:
             parent_node = self.root_node.insert(data, self.root_node)
 
-        self.rebalanceTree(parent_node)
+        self.rebalance_tree(parent_node)
 
-    def rebalanceTree(self, parent_node):
+    def rebalance_tree(self, parent_node):
+        """docstring"""
 
         self.setBalance(parent_node)
 
         if parent_node.balance < -1:
-            if self.height(parent_node.left_child.left_child) >= self.height(parent_node.left_child.right_child):
+            if self.height(parent_node.left_child.left_child) >= self.height(
+                    parent_node.left_child.right_child):
                 parent_node = self.rotateRight(parent_node)
             else:
                 parent_node = self.rotateLeftRight(parent_node)
 
         elif parent_node.balance > 1:
-            if self.height(parent_node.right_child.right_child) >= self.height(parent_node.right_child.left_child):
+            if self.height(parent_node.right_child.right_child) >= self.height(
+                    parent_node.right_child.left_child):
                 parent_node = self.rotateLeft(parent_node)
             else:
                 parent_node = self.rotateRightLeft(parent_node)
 
         if parent_node.parent_node is not None:
-            self.rebalanceTree(parent_node.parent_node)
+            self.rebalance_tree(parent_node.parent_node)
         else:
             self.root_node = parent_node
 
     def setBalance(self, node):
+        """docstring"""
         node.balance = (self.height(node.right_child) - self.height(node.left_child))
 
     def height(self, node):
+        """docstring"""
         if node is None:
             return -1
         else:
             return 1 + max(self.height(node.left_child), self.height(node.right_child))
 
     def rotateRight(self, node):
+        """docstring"""
         print("Rotate Right...")
 
         b = node.left_child
@@ -74,6 +82,7 @@ class AVL(object):
         return b
 
     def rotateLeft(self, node):
+        """docstring"""
         print("Rotate Left...")
 
         b = node.right_child
@@ -99,14 +108,17 @@ class AVL(object):
         return b
 
     def rotateLeftRight(self, node):
+        """docstring"""
         print("Rotation Left - Right...")
         node.left_child = self.rotateLeft(node.left_child)
         return self.rotateRight(node)
 
     def rotateRightLeft(self, node):
+        """docstring"""
         print("Rotation Right - Left...")
         node.right_child = self.rotateRight(node.right_child)
         return self.rotateLeft(node)
 
-    def traverseInOrder(self):
-        self.root_node.traverseInOrder()
+    def traverse_in_order(self):
+        """docstring"""
+        self.root_node.traverse_in_order()
