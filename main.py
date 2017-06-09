@@ -1,9 +1,9 @@
-from Study.AVL.balanced_tree import AVL
+from TernarySearchTree.ternary_search_tree import TST
 
-tree = AVL()
 
-tree.insert(4)
-tree.insert(6)
-tree.insert(5)
+tree = TST()
 
-tree.traverseInOrder()
+tree.put("apple", 100)
+tree.put("orange", 200)
+
+print (tree.get("apple"))
