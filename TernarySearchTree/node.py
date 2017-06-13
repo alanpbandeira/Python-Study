@@ -8,3 +8,4 @@ class Node(object):
         self.left_node = None
         self.right_node = None
         self.mid_node = None
+        self.value = None
