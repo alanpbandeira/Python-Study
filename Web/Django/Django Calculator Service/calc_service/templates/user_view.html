@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class='col-sm-6 col-sm-offset-3'>
+        <h1> {{ username }} </h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>operation</th>
+                    <th>result</th>
+                </tr>
+                {% for obj in object_list %}
+                <tr>
+                    <td>{{ obj.x_value }}</td>
+                    <td>{{ obj.y_value }}</td>
+                    <td>{{ obj.op }}</td>
+                    <td>{{ obj.result }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <a href="/calc" class="btn btn-info" role="btn"> Calculator</a>
+    </div>
+{% endblock content %}
