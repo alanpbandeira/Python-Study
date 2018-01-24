@@ -1,0 +1,75 @@
+2018-01-23 22:11:50,020 INFO: Microblog startup [in /home/alan/Workspace/Python/Python-Study/Web/Flask-Study/microblog/app/__init__.py:49]
+2018-01-23 22:12:15,715 ERROR: Exception on /edit_profile [POST] [in /home/alan/.local/lib/python3.6/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/alan/.local/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/alan/.local/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/alan/.local/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/alan/.local/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/alan/.local/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alan/.local/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alan/anaconda3/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/alan/Workspace/Python/Python-Study/Web/Flask-Study/microblog/app/routes.py", line 101, in edit_profile
+    db.session.commit()
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 921, in commit
+    self.transaction.commit()
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2192, in flush
+    self._flush(objects)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2312, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2276, in _flush
+    flush_context.execute()
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 177, in save_obj
+    mapper, table, update)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 737, in _emit_update_statements
+    execute(statement, multiparams)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/home/alan/.local/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username [SQL: 'UPDATE user SET username=?, about_me=? WHERE user.id = ?'] [parameters: ('jebnator', '', 3)]
+2018-01-23 23:41:46,975 INFO: Microblog startup [in /home/alan/Workspace/Python/Python-Study/Web/Flask-Study/microblog/app/__init__.py:49]
+2018-01-23 23:42:07,918 INFO: Microblog startup [in /home/alan/Workspace/Python/Python-Study/Web/Flask-Study/microblog/app/__init__.py:49]
